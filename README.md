@@ -9,3 +9,4 @@ https://jaspock.github.io/dai1920/index.html
 - Hecho Css
 - Verificado y validado HTML5 y CSS
 - Práctica hecha, esperando corrección
+- Práctica 1 mergeada con la rama principal (master)
