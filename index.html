@@ -3,26 +3,12 @@
     <head>
         <meta charset="utf-8">
         <!---Título del documento -->
-        <title>Practica 1</title>
+        <title>Practica 2</title>
         
         <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
         <link id="estilo" rel="stylesheet" type="text/css" href="./css/normal.css">
-        <!---Tipos de Fuente -->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+        <!---Tipo de Fuente -->
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-        
-        <script type="text/javascript">
-            function changeCSS(cssFile) 
-            {
-              var oldlink = document.getElementById("estilo");
-              var newlink = document.createElement("link")
-              newlink.setAttribute("rel", "stylesheet");
-              newlink.setAttribute("type", "text/css");
-              newlink.setAttribute("id", "estilo");
-              newlink.setAttribute("href", cssFile);
-              document.getElementsByTagName("head")[0].replaceChild(newlink, oldlink);
-            }
-        </script>
 
     </head>
 
@@ -37,16 +23,31 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#paris">París</a>
+                        <a id="hparis" href="#paris">París</a>
                     </li>  
                     <li>
-                        <a href="#londres">Londres</a>
+                        <a id="hlondres" href="#londres">Londres</a>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <main>
+            <div class="formulario" id="nuevoCuestionario">
+                <ul>
+                    <li>
+                        <label>Tema del cuestionario:</label>
+                        <input type="text" name="tema" autofocus>
+                    </li>
+                    <li>
+                        <label>URL de la imagen:</label>
+                        <input type="url" name="imagen">
+                    </li>
+                    <li>
+                        <input type="button" name="crea" value="Crear nuevo cuestionario">
+                    </li>
+                </ul>
+            </div>
             <section id = "paris">
                 <h2>
                     <img src="./img/paris.jpg" alt="imagen_paris">
@@ -110,11 +111,12 @@
         <footer>
                 <span id = "nombre">Gonzalo López Valero</span> 
                 - <span id = "dni">48621247Y</span>
-                | Práctica 1 de Desarrollo de Aplicaciones en Internet | 
-                Universitat d'Alacant | 
-                <a href="#" onclick="changeCSS('./css/normal.css');"> Vista normal</a> 
-                | <a href="#" onclick="changeCSS('./css/compacta.css');"> Vista compacta</a>
-                | <span id="tiempo">[8 horas]</span>
-            </footer>
+                | Práctica 2 de Desarrollo de Aplicaciones en Internet | 
+                Universitat d'Alacant
+                | <span id="tiempo">[15 horas]</span>
+        </footer>
+
+        <script src="./js/index.js"></script>
+
     </body>
 </html>
