@@ -66,8 +66,11 @@ function addFormPregunta(sec)
     var nuevaPregunta= document.createElement('div');
     nuevaPregunta.className = "formulario";
 	nuevaPregunta.innerHTML = '<ul><li><label>Enunciado de la pregunta:</label><input type="text" name="' + sec.id + '_pregunta"></li><li><label>Respuesta:</label><input type="radio" name="' + sec.id + '_respuesta" value="verdadero" checked>Verdadero<input type="radio" name="' + sec.id + '_respuesta" value="falso">Falso</li><li><input type="button" value="Añadir nueva pregunta"></li></ul>';
-    insertBeforeChild(sec,sec.children[1],nuevaPregunta);
+   
+    var bloque = sec.querySelector('.bloque');
+    insertBeforeChild(sec,bloque,nuevaPregunta);
     nuevaPregunta.querySelector('input[type="button"]').addEventListener("click",addPregunta);
+    return nuevaPregunta
 }
 
 function addPregunta(evento)
@@ -108,18 +111,18 @@ function addPregunta(evento)
 function addCuestionario(evento)
 {
     var temaCuestionario = queryAncestorSelector(evento.target,"ul").querySelector('input[type="text"]');
-    var imgCuestionario = queryAncestorSelector(evento.target,"ul").querySelector('input[type="url"]');
 
-    if(temaCuestionario.value == "" || imgCuestionario.value =="")
+    if(temaCuestionario.value == "")
     {
         alert("Campos de creación de cuestionario vacios, POR FAVOR RELLENE TODO");
     }
     else
     {
         var nuevoCuestionario = document.createElement('section');
-        nuevoCuestionario.innerHTML = '<h2><img src="' + imgCuestionario.value + '" alt = "">Cuestionario sobre ' + temaCuestionario.value + '</h2>';
         nuevoCuestionario.id = "c" + contador;
-        addFormPregunta(nuevoCuestionario);
+        nuevoCuestionario.innerHTML = '<encabezado-cuestionario tema="' + temaCuestionario.value + '"></encabezado-cuestionario>';
+        var respuestaPreg = addFormPregunta(nuevoCuestionario);
+
         var insertar = document.querySelector("main");
         insertAsLastChild(insertar,nuevoCuestionario);
         var index = document.querySelector("nav").querySelector("ul");
@@ -127,7 +130,6 @@ function addCuestionario(evento)
         nuevoLi.innerHTML = '<a id="h' + nuevoCuestionario.id + '" href=#' + nuevoCuestionario.id + '>'+ temaCuestionario.value + '</a>';
         insertAsLastChild(index,nuevoLi);
         temaCuestionario.value = "";
-        imgCuestionario.value = "";
         contador += 1;
     }
 }
@@ -143,7 +145,7 @@ function init()
 	var seccion = document.body.querySelectorAll("section");
 	for(var i=0; i<seccion.length; i++)
     {
-        addFormPregunta(seccion[i]);
+        var respuestaCuestionario = addFormPregunta(seccion[i]);
     }
     var btnCuestio = document.body.querySelector('input[name="crea"]');
     btnCuestio.addEventListener("click",addCuestionario);

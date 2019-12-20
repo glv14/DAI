@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <!---Título del documento -->
-        <title>Practica 2</title>
+        <title>Practica 3</title>
         
         <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
         <link id="estilo" rel="stylesheet" type="text/css" href="./css/normal.css">
@@ -39,20 +39,14 @@
                         <label>Tema del cuestionario:</label>
                         <input type="text" name="tema" autofocus>
                     </li>
-                    <li>
-                        <label>URL de la imagen:</label>
-                        <input type="url" name="imagen">
-                    </li>
+                    
                     <li>
                         <input type="button" name="crea" value="Crear nuevo cuestionario">
                     </li>
                 </ul>
             </div>
             <section id = "paris">
-                <h2>
-                    <img src="./img/paris.jpg" alt="imagen_paris">
-                    Cuestionario sobre París
-                </h2>
+                <encabezado-cuestionario tema="parís"></encabezado-cuestionario>  
 
                 <div class="bloque">
                     <div class="pregunta">
@@ -83,10 +77,7 @@
             </section>
     
             <section id = "londres">
-                <h2>
-                    <img src="./img/londres.jpg" alt="imagen_londres">
-                    Cuestionario sobre Londres
-                </h2>
+                <encabezado-cuestionario tema="londres"></encabezado-cuestionario>
 
                 <div class="bloque">
                     <div class="pregunta">
@@ -111,12 +102,13 @@
         <footer>
                 <span id = "nombre">Gonzalo López Valero</span> 
                 - <span id = "dni">48621247Y</span>
-                | Práctica 2 de Desarrollo de Aplicaciones en Internet | 
+                | Práctica 3 de Desarrollo de Aplicaciones en Internet | 
                 Universitat d'Alacant
-                | <span id="tiempo">[15 horas]</span>
+                | <span id="tiempo">[17 horas]</span>
         </footer>
 
         <script src="./js/index.js"></script>
+        <script src="./js/encabezado-cuestionario.js"></script>
 
     </body>
 </html>
